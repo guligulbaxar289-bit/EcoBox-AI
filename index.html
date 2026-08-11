@@ -3,39 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>EcoBox AI</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    background:#eef5f0;
+    background:#eef6f1;
     color:#173b2a;
 }
 
 .app{
-    width:100%;
     max-width:430px;
     min-height:100vh;
     margin:auto;
-    background:white;
-    padding-bottom:90px;
+    background:#fff;
+    padding-bottom:85px;
 }
 
 /* HEADER */
 
 .header{
-    background:#16834b;
+    background:linear-gradient(145deg,#16834b,#0d6338);
     color:white;
-    padding:25px 20px;
-    border-radius:0 0 28px 28px;
+    padding:25px 20px 28px;
+    border-radius:0 0 30px 30px;
 }
 
 .logo{
@@ -49,13 +46,13 @@ body{
 }
 
 .logo h1{
-    font-size:25px;
+    font-size:27px;
 }
 
-.subtitle{
-    margin-top:5px;
-    opacity:.9;
-    font-size:14px;
+.logo p{
+    margin-top:4px;
+    opacity:.85;
+    font-size:13px;
 }
 
 .points-card{
@@ -66,21 +63,21 @@ body{
     border-radius:20px;
 }
 
-.points-title{
-    font-size:14px;
-    color:#60756a;
+.points-label{
+    font-size:13px;
+    color:#718078;
 }
 
 .points{
+    color:#16834b;
     font-size:36px;
     font-weight:bold;
-    color:#16834b;
-    margin-top:5px;
+    margin:4px 0;
 }
 
-.points-small{
-    color:#728279;
-    font-size:13px;
+.points-info{
+    font-size:12px;
+    color:#87938d;
 }
 
 /* CONTENT */
@@ -89,107 +86,97 @@ body{
     padding:20px;
 }
 
-.section-title{
+.title{
     font-size:20px;
-    margin:22px 0 12px;
+    margin:20px 0 12px;
 }
 
-/* AI CARD */
+/* AI */
 
 .ai-card{
     background:#e8f5ed;
-    border-radius:22px;
-    padding:20px;
+    padding:18px;
+    border-radius:23px;
 }
 
 .camera{
-    height:200px;
-    background:#d7eadf;
+    height:190px;
     border-radius:18px;
-
+    background:#d5eadc;
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:70px;
-
-    margin-bottom:15px;
+    transition:.3s;
 }
 
-.camera-text{
+.camera.scan{
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{opacity:1}
+    50%{opacity:.4}
+    100%{opacity:1}
+}
+
+.ai-description{
     text-align:center;
-    color:#547064;
-    font-size:14px;
-    margin-bottom:15px;
+    color:#61776b;
+    font-size:13px;
+    line-height:1.5;
+    margin:14px 0;
 }
 
-.button{
+.main-button{
     width:100%;
-    border:none;
+    border:0;
+    border-radius:15px;
     background:#16834b;
     color:white;
-
     padding:16px;
-
-    border-radius:15px;
-
     font-size:16px;
     font-weight:bold;
-
     cursor:pointer;
 }
 
-.button:hover{
-    background:#106b3c;
+.main-button:active{
+    transform:scale(.98);
 }
 
 /* RESULT */
 
 .result{
     display:none;
-
     background:white;
-
+    border-radius:18px;
+    padding:17px;
     margin-top:15px;
-
-    padding:18px;
-
-    border-radius:17px;
 }
 
-.result-title{
-    font-size:18px;
-    font-weight:bold;
-
-    margin-bottom:10px;
+.result h3{
+    margin-bottom:12px;
 }
 
-.result-row{
+.row{
     display:flex;
     justify-content:space-between;
-
-    padding:8px 0;
-
+    padding:9px 0;
     border-bottom:1px solid #edf1ee;
+    font-size:14px;
 }
 
-.success{
-    margin-top:15px;
-
-    padding:12px;
-
-    background:#e6f6ec;
-
+.accepted{
+    background:#e5f6eb;
     color:#16834b;
-
+    padding:13px;
     border-radius:12px;
-
-    font-weight:bold;
-
     text-align:center;
+    margin-top:14px;
+    font-weight:bold;
 }
 
-/* STATISTICS */
+/* STATS */
 
 .stats{
     display:grid;
@@ -199,194 +186,201 @@ body{
 
 .stat{
     background:#f2f7f4;
-    padding:18px;
+    padding:17px;
     border-radius:18px;
 }
 
-.stat-title{
-    font-size:13px;
-    color:#718078;
+.stat-icon{
+    font-size:24px;
+}
+
+.stat-label{
+    color:#728078;
+    font-size:12px;
+    margin-top:7px;
 }
 
 .stat-number{
-    font-size:26px;
-    font-weight:bold;
     color:#16834b;
-    margin-top:5px;
+    font-size:25px;
+    font-weight:bold;
+    margin-top:3px;
+}
+
+/* ECOBOX */
+
+.ecobox{
+    background:#173b2a;
+    color:white;
+    padding:20px;
+    border-radius:20px;
+}
+
+.ecobox-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.status{
+    background:#2bad68;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.ecobox p{
+    margin-top:10px;
+    font-size:14px;
+    opacity:.9;
+}
+
+.route{
+    margin-top:15px;
+    width:100%;
+    border:0;
+    border-radius:13px;
+    padding:13px;
+    font-weight:bold;
+    color:#173b2a;
+    background:white;
 }
 
 /* HISTORY */
+
+.history{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
 
 .history-item{
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     background:#f5f7f6;
-
-    padding:15px;
-
-    border-radius:14px;
-
-    margin-bottom:10px;
+    padding:13px;
+    border-radius:15px;
 }
 
 .history-left{
     display:flex;
-    align-items:center;
     gap:10px;
+    align-items:center;
 }
 
-.bottle{
+.recycle-icon{
     width:40px;
     height:40px;
-
-    background:#e3f3e9;
-
     border-radius:12px;
-
+    background:#e4f3e9;
     display:flex;
     align-items:center;
     justify-content:center;
-
-    font-size:22px;
+    font-size:21px;
 }
 
 .history-name{
+    font-size:14px;
     font-weight:bold;
 }
 
 .history-date{
-    font-size:12px;
-    color:#87948d;
+    color:#87928c;
+    font-size:11px;
     margin-top:3px;
 }
 
-.history-points{
+.plus{
     color:#16834b;
     font-weight:bold;
 }
 
-/* ECOBOX */
+/* RATING */
 
-.ecobox-card{
-    background:#173b2a;
-    color:white;
-
-    padding:20px;
-
+.rating{
+    background:#f2f7f4;
     border-radius:20px;
+    padding:18px;
 }
 
-.ecobox-header{
+.rank{
     display:flex;
     justify-content:space-between;
+    padding:11px 0;
+    border-bottom:1px solid #dfe9e3;
 }
 
-.ecobox-status{
-    background:#2ba968;
-    padding:6px 10px;
-    border-radius:20px;
-
-    font-size:12px;
+.rank:last-child{
+    border-bottom:0;
 }
 
-.ecobox-address{
-    margin-top:10px;
-    opacity:.85;
-}
-
-.route-button{
-    margin-top:15px;
-
-    background:white;
-    color:#173b2a;
+.rank-number{
+    font-weight:bold;
+    color:#16834b;
 }
 
 /* PROFILE */
 
-.profile-card{
-    background:#f3f7f4;
-
-    padding:20px;
-
-    border-radius:20px;
-
+.profile{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:13px;
+    background:#f2f7f4;
+    padding:18px;
+    border-radius:20px;
 }
 
 .avatar{
-    width:60px;
-    height:60px;
-
+    width:55px;
+    height:55px;
     background:#16834b;
     color:white;
-
     border-radius:50%;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
-    font-size:25px;
+    font-size:23px;
     font-weight:bold;
 }
 
 .profile-name{
-    font-size:18px;
     font-weight:bold;
 }
 
 .profile-level{
-    color:#718078;
+    color:#75837c;
+    font-size:12px;
     margin-top:5px;
-    font-size:13px;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 .nav{
     position:fixed;
-
     bottom:0;
-
     left:50%;
-
     transform:translateX(-50%);
-
     width:min(430px,100%);
-
+    height:75px;
     background:white;
-
     display:flex;
-
     justify-content:space-around;
-
-    padding:12px 5px;
-
-    box-shadow:0 -3px 15px rgba(0,0,0,.1);
-
-    z-index:100;
+    align-items:center;
+    box-shadow:0 -4px 18px rgba(0,0,0,.09);
+    z-index:10;
 }
 
 .nav-item{
     text-align:center;
-
-    color:#718078;
-
-    font-size:11px;
-
-    cursor:pointer;
+    font-size:10px;
+    color:#78857f;
 }
 
 .nav-item span{
     display:block;
-
-    font-size:22px;
-
-    margin-bottom:3px;
+    font-size:21px;
+    margin-bottom:4px;
 }
 
 .nav-item.active{
@@ -394,30 +388,11 @@ body{
     font-weight:bold;
 }
 
-/* AI ANIMATION */
-
-.scanning{
-    animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-
-    0%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:.4;
-    }
-
-    100%{
-        opacity:1;
-    }
-
+.hidden{
+    display:none;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -426,7 +401,7 @@ body{
 
 <!-- HEADER -->
 
-<div class="header">
+<header class="header">
 
     <div class="logo">
 
@@ -434,18 +409,14 @@ body{
 
         <div>
             <h1>EcoBox AI</h1>
-
-            <div class="subtitle">
-                Умная система переработки отходов
-            </div>
+            <p>Умная переработка отходов</p>
         </div>
 
     </div>
 
-
     <div class="points-card">
 
-        <div class="points-title">
+        <div class="points-label">
             Ваш EcoPoints
         </div>
 
@@ -453,114 +424,74 @@ body{
             247
         </div>
 
-        <div class="points-small">
-            Баллы можно обменять на бонусы
+        <div class="points-info">
+            Баллы за правильную сортировку
         </div>
 
     </div>
 
-</div>
+</header>
 
 
-<div class="content">
-
+<main class="content">
 
 <!-- AI -->
 
-<h2 class="section-title">
-    🤖 AI-распознавание отходов
+<h2 class="title">
+    🤖 AI-распознавание
 </h2>
-
 
 <div class="ai-card">
 
     <div class="camera" id="camera">
-
         📷
-
     </div>
 
+    <div class="ai-description">
 
-    <div class="camera-text">
-
-        Поместите пластиковую бутылку в EcoBox
-        или нажмите кнопку для демонстрации AI
+        Поместите пластиковый отход в EcoBox.
+        <br>
+        AI определит его тип и проверит возможность переработки.
 
     </div>
-
 
     <button
-        class="button"
-        onclick="scanWaste()">
+        class="main-button"
+        onclick="recognizeWaste()">
 
         📷 Распознать отход
 
     </button>
 
 
-    <div
-        class="result"
-        id="result">
+    <div class="result" id="result">
 
-        <div class="result-title">
+        <h3>🤖 Результат AI</h3>
 
-            Результат AI
-
-        </div>
-
-
-        <div class="result-row">
-
+        <div class="row">
             <span>Тип отхода</span>
-
-            <strong>
-                PET-пластик
-            </strong>
-
+            <strong>PET-пластик</strong>
         </div>
 
-
-        <div class="result-row">
-
+        <div class="row">
             <span>Объект</span>
-
-            <strong>
-                Пластиковая бутылка
-            </strong>
-
+            <strong>Пластиковая бутылка</strong>
         </div>
 
-
-        <div class="result-row">
-
+        <div class="row">
             <span>Точность AI</span>
-
-            <strong>
-                97%
-            </strong>
-
+            <strong>97%</strong>
         </div>
 
-
-        <div class="result-row">
-
+        <div class="row">
             <span>Вес</span>
-
-            <strong>
-                32 г
-            </strong>
-
+            <strong>32 г</strong>
         </div>
 
-
-        <div class="success">
-
-            ✅ Отход принят
-
-            <br>
-
+        <div class="accepted">
+            ✅ Отход соответствует требованиям
+            <br><br>
             ⭐ +3 EcoPoints
-
         </div>
 
     </div>
@@ -568,28 +499,24 @@ body{
 </div>
 
 
-<!-- STATISTICS -->
+<!-- STATS -->
 
-<h2 class="section-title">
-    📊 Ваша статистика
+<h2 class="title">
+    📊 Моя статистика
 </h2>
-
 
 <div class="stats">
 
-
     <div class="stat">
 
-        <div class="stat-title">
+        <div class="stat-icon">♻️</div>
+
+        <div class="stat-label">
             Сдано бутылок
         </div>
 
-        <div
-            class="stat-number"
-            id="bottles">
-
+        <div class="stat-number" id="bottles">
             82
-
         </div>
 
     </div>
@@ -597,44 +524,73 @@ body{
 
     <div class="stat">
 
-        <div class="stat-title">
-            Переработано
+        <div class="stat-icon">⚖️</div>
+
+        <div class="stat-label">
+            Общий вес
         </div>
 
-        <div
-            class="stat-number"
-            id="weight">
-
+        <div class="stat-number" id="weight">
             2.64 кг
-
         </div>
 
     </div>
 
+</div>
+
+
+<!-- ECOBOX -->
+
+<h2 class="title">
+    📍 Ближайший EcoBox
+</h2>
+
+<div class="ecobox">
+
+    <div class="ecobox-top">
+
+        <h3>
+            EcoBox #001
+        </h3>
+
+        <div class="status">
+            Открыт
+        </div>
+
+    </div>
+
+    <p>
+        📍 Нукус, центр города
+    </p>
+
+    <p>
+        🚶 Расстояние: 0,8 км
+    </p>
+
+    <button class="route">
+        🗺️ Построить маршрут
+    </button>
 
 </div>
 
 
 <!-- HISTORY -->
 
-<h2 class="section-title">
+<h2 class="title">
     📜 История сдачи
 </h2>
 
-
-<div id="history">
-
+<div class="history" id="history">
 
     <div class="history-item">
 
         <div class="history-left">
 
-            <div class="bottle">
+            <div class="recycle-icon">
                 ♻️
             </div>
 
             <div>
-
                 <div class="history-name">
                     PET-бутылка
                 </div>
@@ -642,13 +598,11 @@ body{
                 <div class="history-date">
                     Сегодня · 10:25 · 32 г
                 </div>
-
             </div>
 
         </div>
 
-
-        <div class="history-points">
+        <div class="plus">
             +3
         </div>
 
@@ -659,12 +613,11 @@ body{
 
         <div class="history-left">
 
-            <div class="bottle">
+            <div class="recycle-icon">
                 ♻️
             </div>
 
             <div>
-
                 <div class="history-name">
                     PET-бутылка
                 </div>
@@ -672,193 +625,113 @@ body{
                 <div class="history-date">
                     Вчера · 18:40 · 45 г
                 </div>
-
             </div>
 
         </div>
 
-
-        <div class="history-points">
+        <div class="plus">
             +4
         </div>
 
     </div>
 
-
-    <div class="history-item">
-
-        <div class="history-left">
-
-            <div class="bottle">
-                ♻️
-            </div>
-
-            <div>
-
-                <div class="history-name">
-                    PET-бутылка
-                </div>
-
-                <div class="history-date">
-                    Вчера · 14:15 · 28 г
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="history-points">
-            +3
-        </div>
-
-    </div>
-
-
 </div>
 
 
-<!-- ECOBOX -->
+<!-- RATING -->
 
-<h2 class="section-title">
-    📍 Ближайший EcoBox
+<h2 class="title">
+    🏆 Эко-рейтинг
 </h2>
 
+<div class="rating">
 
-<div class="ecobox-card">
-
-
-    <div class="ecobox-header">
-
-        <h3>
-            EcoBox #001
-        </h3>
-
-        <div class="ecobox-status">
-            Открыт
-        </div>
-
+    <div class="rank">
+        <span>🥇 Азиза</span>
+        <span class="rank-number">1240</span>
     </div>
 
-
-    <div class="ecobox-address">
-
-        📍 Нукус, центр города
-
-        <br>
-
-        🚶 0,8 км от вас
-
+    <div class="rank">
+        <span>🥈 Бахтиёр</span>
+        <span class="rank-number">980</span>
     </div>
 
-
-    <button
-        class="button route-button">
-
-        🗺️ Построить маршрут
-
-    </button>
-
+    <div class="rank">
+        <span>🥉 Гулбахар</span>
+        <span class="rank-number" id="myRank">247</span>
+    </div>
 
 </div>
 
 
 <!-- PROFILE -->
 
-<h2 class="section-title">
+<h2 class="title">
     👤 Профиль
 </h2>
 
-
-<div class="profile-card">
-
+<div class="profile">
 
     <div class="avatar">
         G
     </div>
 
-
     <div>
-
         <div class="profile-name">
             Пользователь EcoBox
         </div>
 
         <div class="profile-level">
-            🌱 Уровень: Эко-активист
+            🌱 Эко-активист
         </div>
-
     </div>
 
-
 </div>
 
-
-</div>
+</main>
 
 
 <!-- NAVIGATION -->
 
-<div class="nav">
-
+<nav class="nav">
 
     <div class="nav-item active">
-
         <span>🏠</span>
-
         Главная
-
     </div>
-
 
     <div
         class="nav-item"
-        onclick="scanWaste()">
+        onclick="recognizeWaste()">
 
         <span>📷</span>
-
         AI Scan
 
     </div>
 
-
     <div class="nav-item">
-
         <span>♻️</span>
-
         EcoBox
-
     </div>
 
-
     <div class="nav-item">
-
         <span>🏆</span>
-
         Рейтинг
-
     </div>
-
 
     <div class="nav-item">
-
         <span>👤</span>
-
         Профиль
-
     </div>
 
-
-</div>
-
+</nav>
 
 </div>
 
 
 <script>
 
-
-function scanWaste(){
+function recognizeWaste(){
 
     const camera =
         document.getElementById("camera");
@@ -866,34 +739,20 @@ function scanWaste(){
     const result =
         document.getElementById("result");
 
+    camera.classList.add("scan");
 
-    camera.innerHTML =
-        "🔍";
+    camera.innerHTML = "🔍";
 
-
-    camera.classList.add(
-        "scanning"
-    );
-
-
-    result.style.display =
-        "none";
+    result.style.display = "none";
 
 
     setTimeout(function(){
 
+        camera.classList.remove("scan");
 
-        camera.classList.remove(
-            "scanning"
-        );
+        camera.innerHTML = "🍾";
 
-
-        camera.innerHTML =
-            "🍾";
-
-
-        result.style.display =
-            "block";
+        result.style.display = "block";
 
 
         /* POINTS */
@@ -901,20 +760,23 @@ function scanWaste(){
         const points =
             document.getElementById("points");
 
-
         let currentPoints =
             parseInt(points.innerText);
 
+        currentPoints += 3;
 
         points.innerText =
-            currentPoints + 3;
+            currentPoints;
+
+
+        document.getElementById("myRank")
+            .innerText = currentPoints;
 
 
         /* BOTTLES */
 
         const bottles =
             document.getElementById("bottles");
-
 
         bottles.innerText =
             parseInt(bottles.innerText) + 1;
@@ -925,12 +787,10 @@ function scanWaste(){
         const weight =
             document.getElementById("weight");
 
-
         let currentWeight =
             parseFloat(
                 weight.innerText
             );
-
 
         weight.innerText =
             (currentWeight + 0.032)
@@ -943,20 +803,17 @@ function scanWaste(){
         const history =
             document.getElementById("history");
 
-
         const item =
             document.createElement("div");
 
-
         item.className =
             "history-item";
-
 
         item.innerHTML = `
 
             <div class="history-left">
 
-                <div class="bottle">
+                <div class="recycle-icon">
                     ♻️
                 </div>
 
@@ -974,23 +831,19 @@ function scanWaste(){
 
             </div>
 
-            <div class="history-points">
+            <div class="plus">
                 +3
             </div>
 
         `;
 
-
         history.prepend(item);
-
 
     },1500);
 
 }
 
-
 </script>
 
 </body>
-
 </html>
